@@ -6,7 +6,11 @@
 /**********************************************************************/
 
 // Standard Libs
+#define NOMINMAX
+#include <windows.h>
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include <limits>
 
 // Includes Libs

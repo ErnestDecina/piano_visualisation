@@ -120,14 +120,20 @@ void Midi::listen_input(void)
 	} // eND IF
 
 
-
 	midi_input->openPort(selected_input_port - 1);
+
+
 	// Don't ignore sysex, timing, or active sensing messages.
 	midi_input->ignoreTypes(false, false, false);
 
+
+	// Start Listen
+	input_listen_status = true;
+
+
 	// Periodically check input queue.
-	std::cout << "Reading MIDI from port ... quit with Ctrl-C.\n";
-	while (true) {
+	std::cout << "Reading MIDI from port ... quit with Numpad 2.\n";
+	while (input_listen_status) {
 		stamp = midi_input->getMessage(&message);
 		number_bytes = message.size();
 		for (i = 0; i < number_bytes; i++)
@@ -135,13 +141,39 @@ void Midi::listen_input(void)
 		if (number_bytes > 0)
 			std::cout << "stamp = " << stamp << std::endl;
 		// Sleep for 10 milliseconds ... platform-dependent.
-		// Sleep(10);
+		Sleep(10);
 	}
+}
+
+
+// TODO: IMPLEMENT OUTPUT
+void Midi::listen_output(void)
+{
+
 
 }
 
-void Midi::listen_output(void)
+
+void Midi::stop_listen(void)
 {
+	// Error Checking
+	if (selected_input_port == NULL)
+	{
+		return;
+	} // End if
+
+	while (true)
+	{
+		Sleep(50);
+		if (GetAsyncKeyState(VK_NUMPAD2))
+		{
+			// Stop loop
+			std::cout << "Stopping listening\n";
+			input_listen_status = false;
+			midi_input->closePort();
+			return;
+		} // End if
+	}
 }
 
 

@@ -20,6 +20,7 @@ public:
     void select_output(void);
     void listen_input(void);
     void listen_output(void);
+    void stop_listen(void);
     void cleanup(void);
 
 private:
@@ -28,6 +29,7 @@ private:
     RtMidiOut* midi_output = 0;
     unsigned int available_input_ports = 0;
     unsigned int available_output_ports = 0;
+    bool input_listen_status = false;
 
     // Methods
     void probing_input(void);

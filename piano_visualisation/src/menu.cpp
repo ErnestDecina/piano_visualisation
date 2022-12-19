@@ -21,6 +21,65 @@ void Menu::display_menu(void)
 
 		user_option = get_user_input("Select option: ");
 
+		if (user_option == 1)
+		{
+			std::cout << "\n\n";
+			menu_midi->get_input();
+			menu_midi->select_input();
+		}
+
+		else if (user_option == 2)
+		{
+			std::cout << "\n\n";
+			menu_midi->get_output();
+			menu_midi->select_output();
+		}
+
+		else if (user_option == 3)
+		{
+			std::cout << "\n\n";
+			menu_midi->input_details();
+			std::cout << "\n\n";
+		}
+
+		else if (user_option == 4)
+		{
+			std::cout << "\n\n";
+			menu_midi->output_details();
+			std::cout << "\n\n";
+		}
+
+		else if (user_option == 5)
+		{
+			// Create Thread to listen for midi
+			std::thread thread_listen_input(&Midi::listen_input, menu_midi);
+
+			// Thread to stop listen loop
+			std::thread thread_stop_listen(&Midi::stop_listen, menu_midi);
+
+			// Thread join
+			thread_listen_input.join();
+			thread_stop_listen.join();
+
+		}
+
+		else if (user_option == 6)
+		{
+
+		}
+
+		else if (user_option == 7)
+		{
+			std::cout << "\n\nEnding Program\n";
+			return;
+		}
+
+		else
+		{
+			std::cout << "Please select valid option.";
+		}
+
+		/*
 		switch (user_option)
 		{
 		case 1:
@@ -48,7 +107,16 @@ void Menu::display_menu(void)
 			break;
 
 		case 5:
-			menu_midi->listen_input();
+			// Create Thread to listen for midi
+			std::thread thread_listen_input(&Midi::listen_input, menu_midi);
+
+			// Thread to stop listen loop
+			std::thread thread_stop_listen(&Midi::stop_listen, menu_midi);
+
+			// Thread join
+			thread_listen_input.join();
+			thread_stop_listen.join();
+
 			break;
 
 		case 6:
@@ -63,7 +131,7 @@ void Menu::display_menu(void)
 			std::cout << "Please select valid option.";
 			break;
 		} // End switch
-
+		*/
 		std::cout << "\n\n";
 	} // End while
 }
