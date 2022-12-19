@@ -24,6 +24,9 @@
     <ClCompile Include="piano_visualisation\src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="piano_visualisation\src\menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="piano_visualisation\src\main.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="piano_visualisation\src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="piano_visualisation\src\menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

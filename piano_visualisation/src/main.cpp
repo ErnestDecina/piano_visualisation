@@ -1,19 +1,18 @@
-// midiprobe.cpp
+// main.cpp
 #include "pch.h"
-#include "midi.h"
+#include "main.h"
 
 int main()
 {
 	// Variables
-	midi Midi;
+	Midi midi;
+	Menu menu;
 
-
-	// Test Class
-	Midi.get_input();
-	Midi.get_output();
-
+	// Display Menu
+	menu.set_midi(&midi);
+	menu.display_menu();
 
 	// Clean up Memory
-	Midi.cleanup();
+	midi.cleanup();
 	return 0;
 } // End main

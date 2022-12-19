@@ -7,7 +7,7 @@
 
 // Standard Libs
 #include <iostream>
-
+#include <limits>
 
 // Includes Libs
 #include <RtMidi.h>

@@ -167,6 +167,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="piano_visualisation\src\menu.cpp" />
     <ClCompile Include="piano_visualisation\src\midi.cpp" />
     <ClCompile Include="piano_visualisation\src\main.cpp" />
     <ClCompile Include="piano_visualisation\src\pch.cpp">
@@ -185,6 +186,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="piano_visualisation\src\menu.h" />
     <ClInclude Include="piano_visualisation\src\midi.h" />
     <ClInclude Include="piano_visualisation\src\main.h" />
     <ClInclude Include="piano_visualisation\src\pch.h" />
